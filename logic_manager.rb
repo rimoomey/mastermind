@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-require './game'
-require './code_breaker'
+require_relative './game'
+require_relative './code_breaker'
 
 # To handle game logic
 module LogicManager
