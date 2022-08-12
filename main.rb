@@ -2,7 +2,7 @@
 
 require_relative './game'
 require_relative './code_breaker'
-require_relative './display'
+require_relative './text_display'
 require_relative './logic_manager'
 
 mindmaster = Game.new

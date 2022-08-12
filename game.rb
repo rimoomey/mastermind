@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require_relative './code_breaker'
-require_relative './display'
+require_relative './text_display'
 
 # Game begins the game process
 class Game

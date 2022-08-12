@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require_relative './logic_manager'
-require_relative './display'
+require_relative './text_display'
 
 # Human code breaker class
 class CodeBreaker
@@ -16,17 +16,23 @@ class CodeBreaker
 
   def start_guessing
     guesses = 0
+    correct = false
 
-    until guesses.positive?
+    until guesses.positive? || correct # make a total of 12
       @guess = collect_guess_code # prompt for user input
 
       p @guess
       guesses += 1
+
+      correct = correct_guess?(@secret_code, @guess)
     end
+
+    outcome_text(correct)
   end
 
   def collect_guess_code
     new_guess = [0, 0, 0, 0]
+
     (1..4).each do |time|
       guess_prompt(time)
       new_guess[time - 1] = gets.chomp.to_i
