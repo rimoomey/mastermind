@@ -12,7 +12,7 @@ module TextDisplay
 
   def show_guess_result(exact_matches, all_matches)
     puts "Correct color & position: #{exact_matches}"
-    puts "Correct color online: #{all_matches}"
+    puts "Correct color only: #{all_matches}"
   end
 
   def outcome_text(correct)

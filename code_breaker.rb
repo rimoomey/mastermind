@@ -24,6 +24,9 @@ class CodeBreaker
       p @guess
       guesses += 1
 
+      show_guess_result(exact_matches(@secret_code, @guess),
+                        all_guesses_matching(@secret_code, @guess))
+
       correct = correct_guess?(@secret_code, @guess)
     end
 
