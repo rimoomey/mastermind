@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require_relative './code_breaker'
+require_relative '.code_maker'
 require_relative './text_display'
 
 # Game begins the game process
@@ -8,7 +9,8 @@ class Game
   include TextDisplay
 
   def initialize
-    @breaker = CodeBreaker.new
+    @breaker = select_game_type
+    @breaker.start_guessing
   end
 
   def select_game_type
@@ -17,9 +19,9 @@ class Game
 
     case game_type
     when 'B'
-      @breaker.start_guessing
+      CodeBreaker.new
     when 'M'
-      @breaker.start_guessing # Switch to computer later
+      CodeMaker.new
     else
       puts 'Invalid Choice'
       select_game_type
