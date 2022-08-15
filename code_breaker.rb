@@ -14,20 +14,24 @@ class CodeBreaker
     @secret_code = [1, 1, 1, 2] # test guess
   end
 
+  def make_guess
+    @guess = collect_guess_code # prompt for user input
+
+    p @guess
+
+    show_guess_result(exact_matches(@secret_code, @guess),
+                      all_guesses_matching(@secret_code, @guess))
+
+    correct_guess?(@secret_code, @guess)
+  end
+
   def start_guessing
     guesses = 0
     correct = false
 
     until guesses.positive? || correct # make a total of 12
-      @guess = collect_guess_code # prompt for user input
-
-      p @guess
+      correct = make_guess
       guesses += 1
-
-      show_guess_result(exact_matches(@secret_code, @guess),
-                        all_guesses_matching(@secret_code, @guess))
-
-      correct = correct_guess?(@secret_code, @guess)
     end
 
     outcome_text(correct)
