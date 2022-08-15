@@ -19,7 +19,7 @@ class Game
     when 'B'
       @breaker.start_guessing
     when 'M'
-      @breaker.start_guessing
+      @breaker.start_guessing # Switch to computer later
     else
       puts 'Invalid Choice'
       select_game_type

@@ -10,6 +10,11 @@ module TextDisplay
     puts "Please enter guess ##{count}"
   end
 
+  def show_guess_result(exact_matches, all_matches)
+    puts "Correct color & position: #{exact_matches}"
+    puts "Correct color online: #{all_matches}"
+  end
+
   def outcome_text(correct)
     game_outcome = correct ? 'You win!' : 'You lose!'
     puts game_outcome
