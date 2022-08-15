@@ -7,10 +7,29 @@ require_relative './logic_manager'
 class CodeMaker
   include LogicManager
   include TextDisplay
+  attr_reader :secret_code, :matches, :curr_guess
 
-  def initialize; end
+  def initialize
+    @secret_code = get_user_code
+    puts @secret_code
+  end
 
   def make_guess(correct_guesses); end
 
   def start_guessing; end
+
+  def get_user_code
+    user_code = []
+
+    until user_code.length > 3
+      prompt_user_maker(user_code.length + 1)
+      choice = gets.chomp.to_i
+      if valid_code_input?(choice)
+        user_code.push(gets.chomp)
+        prompt_user_maker(user_code.length + 1)
+      else
+        invalid_input
+      end
+    end
+  end
 end

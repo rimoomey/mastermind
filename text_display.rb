@@ -23,4 +23,12 @@ module TextDisplay
     game_outcome = correct ? 'You win!' : 'You lose!'
     puts game_outcome
   end
+
+  def prompt_user_maker(count)
+    puts "Please enter ##{count} for secret code. (1-6)"
+  end
+
+  def invalid_input
+    puts "Invalid input received"
+  end
 end

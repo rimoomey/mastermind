@@ -7,7 +7,7 @@ require_relative './text_display'
 class CodeBreaker
   include LogicManager
   include TextDisplay
-  attr_accessor :secret_code, :guess
+  attr_reader :secret_code, :guess
 
   def initialize
     @secret_code = [rand(1..6), rand(1..6), rand(1..6), rand(1..6)]

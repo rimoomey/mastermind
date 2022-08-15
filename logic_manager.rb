@@ -24,4 +24,8 @@ module LogicManager
   def correct_guess?(master, guess)
     master == guess
   end
+
+  def valid_code_input?(choice)
+    choice.instance_of?(Integer) && choice <= 6 && choice >= 1
+  end
 end

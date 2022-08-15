@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require_relative './code_breaker'
-require_relative '.code_maker'
+require_relative './code_maker'
 require_relative './text_display'
 
 # Game begins the game process
