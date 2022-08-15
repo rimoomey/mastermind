@@ -15,7 +15,7 @@ class CodeBreaker
   end
 
   def make_guess
-    @guess = collect_guess_code # prompt for user input
+    @guess = ask_for_guess # prompt for user input
 
     p @guess
 
@@ -38,7 +38,7 @@ class CodeBreaker
     outcome_text(correct)
   end
 
-  def collect_guess_code
+  def ask_for_guess
     new_guess = [0, 0, 0, 0]
 
     (1..4).each do |time|
