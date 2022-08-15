@@ -21,6 +21,14 @@ module LogicManager
     matching_numbers
   end
 
+  def check_against_code(master, guess)
+    matches = [0, 0, 0, 0]
+    guess.each_with_index do |value, index|
+      matches[index] = value if master[index] == value
+    end
+    matches
+  end
+
   def correct_guess?(master, guess)
     master == guess
   end

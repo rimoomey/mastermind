@@ -29,6 +29,18 @@ module TextDisplay
   end
 
   def invalid_input
-    puts "Invalid input received"
+    puts 'Invalid input received'
+  end
+
+  def computer_guessing(attempt_num)
+    puts 'The computer is now guessing...'
+    puts "Guess #{attempt_num}: "
+    sleep(1)
+  end
+
+  def computer_guess_output(guess, matches)
+    puts "Computer chooses: #{guess}"
+    puts "Matches so far: #{matches}"
+    puts ''
   end
 end

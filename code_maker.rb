@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# frozen_string_literal: false
 
 require_relative './text_display'
 require_relative './logic_manager'
@@ -11,12 +11,35 @@ class CodeMaker
 
   def initialize
     @secret_code = set_user_code
+    @matches = [0, 0, 0, 0]
     p @secret_code
   end
 
-  def make_guess(correct_guesses); end
+  def make_guess(correct_guesses)
+    correct_guesses.map do |element|
+      if element != 0
+        element
+      else
+        rand(1..6)
+      end
+    end
+  end
 
-  def start_guessing; end
+  def start_guessing
+    attempt_num = 1
+    correct = false
+
+    until attempt_num > 12 || correct
+      computer_guessing(attempt_num)
+      @curr_guess = make_guess(@matches)
+      @matches = check_against_code(@secret_code, @curr_guess)
+      computer_guess_output(curr_guess, matches)
+      attempt_num += 1
+
+      correct = @curr_guess == @secret_code
+    end
+    outcome_text(!correct)
+  end
 
   def set_user_code
     user_code = []
@@ -31,5 +54,6 @@ class CodeMaker
         invalid_input
       end
     end
+    user_code
   end
 end
