@@ -10,23 +10,23 @@ class CodeMaker
   attr_reader :secret_code, :matches, :curr_guess
 
   def initialize
-    @secret_code = get_user_code
-    puts @secret_code
+    @secret_code = set_user_code
+    p @secret_code
   end
 
   def make_guess(correct_guesses); end
 
   def start_guessing; end
 
-  def get_user_code
+  def set_user_code
     user_code = []
 
     until user_code.length > 3
       prompt_user_maker(user_code.length + 1)
       choice = gets.chomp.to_i
+
       if valid_code_input?(choice)
-        user_code.push(gets.chomp)
-        prompt_user_maker(user_code.length + 1)
+        user_code.push(choice)
       else
         invalid_input
       end
