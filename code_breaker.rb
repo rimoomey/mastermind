@@ -29,9 +29,10 @@ class CodeBreaker
     guesses = 0
     correct = false
 
-    until guesses.positive? || correct # make a total of 12
+    until guesses == 12 || correct
       correct = make_guess
       guesses += 1
+      guesses_left(guesses) unless correct
     end
 
     outcome_text(correct)

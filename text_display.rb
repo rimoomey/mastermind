@@ -7,12 +7,16 @@ module TextDisplay
   end
 
   def guess_prompt(count)
-    puts "Please enter guess ##{count}"
+    puts "Please enter guess ##{count} (1-4)"
   end
 
   def show_guess_result(exact_matches, all_matches)
     puts "Correct color & position: #{exact_matches}"
     puts "Correct color only: #{all_matches}"
+  end
+
+  def guesses_left(guesses)
+    puts "You have #{12 - guesses} guesses left."
   end
 
   def outcome_text(correct)
