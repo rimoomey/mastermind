@@ -17,7 +17,7 @@ class CodeBreaker
   def make_guess
     @guess = ask_for_guess # prompt for user input
 
-    p @guess
+    input_confirmation(@guess)
 
     show_guess_result(exact_matches(@secret_code, @guess),
                       all_guesses_matching(@secret_code, @guess))
