@@ -65,4 +65,17 @@ module TextDisplay
     puts "Matches so far: #{colored_list(matches)}"
     puts ''
   end
+
+  def print_instructions
+    puts 'Mastermind is a guessing game that involves breaking a code.'
+    puts 'The MAKER creates a 4 color code. Example: '
+    puts colored_list([1, 2, 3, 4])
+    puts ''
+    puts 'The BREAKER gets 12 turns to guess the code.'
+    puts 'If you are the BREAKER, the game will tell you how many you get' <<
+         ' exactly right and how many colors you got that were in the wrong place.'
+    puts 'If you are the MAKER, the computer will get to guess your code.'
+    puts ''
+    puts 'Now, do you want to be the MAKER (M) or the BREAKER (B)?'
+  end
 end

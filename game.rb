@@ -9,6 +9,7 @@ class Game
   include TextDisplay
 
   def initialize
+    print_instructions
     @breaker = select_game_type
     @breaker.start_guessing
   end
