@@ -1,7 +1,28 @@
 # frozen_string_literal: false
 
+require_relative './string'
+
 # Manages text display and gets user input
 module TextDisplay
+  def colored_number(number)
+    case number
+    when 1 then "\e[41m 1 \e[0m"
+    when 2 then "\e[42m 2 \e[0m"
+    when 3 then "\e[44m 3 \e[0m"
+    when 4 then "\e[45m 4 \e[0m"
+    when 5 then "\e[46m 5 \e[0m"
+    when 6 then "\e[47m 6 \e[0m"
+    else
+      " #{number} "
+    end
+  end
+
+  def colored_list(arr)
+    arr.reduce('') do |previous, current|
+      previous + " #{colored_number(current)} "
+    end
+  end
+
   def game_type_prompt
     puts 'Please select your game type: (B for BREAKER, M for MAKER)'
   end
@@ -11,8 +32,8 @@ module TextDisplay
   end
 
   def show_guess_result(exact_matches, all_matches)
-    puts "Correct color & position: #{exact_matches}"
-    puts "Correct color only: #{all_matches}"
+    puts "Correct color & position: #{colored_list(exact_matches)}"
+    puts "Correct color only: #{colored_list(all_matches)}"
   end
 
   def guesses_left(guesses)
@@ -39,8 +60,9 @@ module TextDisplay
   end
 
   def computer_guess_output(guess, matches)
-    puts "Computer chooses: #{guess}"
-    puts "Matches so far: #{matches}"
+    puts "Computer chooses: #{colored_list(guess)}"
+    puts ''
+    puts "Matches so far: #{colored_list(matches)}"
     puts ''
   end
 end
