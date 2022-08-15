@@ -11,7 +11,7 @@ class CodeBreaker
 
   def initialize
     @secret_code = [rand(1..6), rand(1..6), rand(1..6), rand(1..6)]
-    @secret_code = [1, 1, 1, 2] # test guess
+    # @secret_code = [1, 1, 1, 2] test guess
   end
 
   def make_guess
